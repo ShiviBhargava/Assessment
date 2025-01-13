@@ -1,0 +1,57 @@
+package basics;
+
+import java.time.Duration;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Enzigma {
+
+
+	public static void main(String[] args) 
+	{
+		//open the Browser
+		ChromeDriver driver=new ChromeDriver();
+		//maximize The Browser
+		driver.manage().window().maximize();
+		//waiting condition
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		//Enter into Enzigma web site
+		driver.get("https://app-staging.nokodr.com/");
+		WebElement sign_up = driver.findElement(By.xpath("//a[contains(text(),'Sign up')]"));
+		sign_up.click();
+		
+		WebElement email = driver.findElement(By.xpath("(//input[@type='email'])[2]"));
+		email.sendKeys("shivani29041996@gmail.com");
+		
+		WebElement checkbox = driver.findElement(By.xpath("//span[@class='slds-checkbox_faux']"));
+		checkbox.click();
+		
+		WebElement proceed_button = driver.findElement(By.xpath("(//button[@name='undefined'])[4]"));
+		proceed_button.click();
+		
+		WebElement verify_code = driver.findElement(By.xpath("//input[@name='code']"));
+		verify_code.sendKeys("839612");
+		
+		WebElement verifycode_button = driver.findElement(By.xpath("//div[contains(text(),'Verify Code')]"));
+		verifycode_button.click();
+		
+		WebElement firstName = driver.findElement(By.xpath("//input[@name='firstName']"));
+		firstName.sendKeys("Shivani");
+		
+		WebElement lastName = driver.findElement(By.xpath("//input[@name='lastName']"));
+		lastName.sendKeys("Bhargava");
+		
+		WebElement password = driver.findElement(By.xpath("(//input[@name='password'])[2]"));
+		password.sendKeys("Shivani@123");
+		
+		WebElement confirmpassword = driver.findElement(By.xpath("//input[@name='password-confirmpassword']"));
+		confirmpassword.sendKeys("Shivani@123");
+		
+		WebElement register_button = driver.findElement(By.xpath("(//button[@class='slds-button slds-button_brand'])[2]"));
+		register_button.click();
+		
+}
+}
